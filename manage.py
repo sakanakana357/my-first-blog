@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+#サイト管理に役立つスクリプト
 """Django's command-line utility for administrative tasks."""
 import os
 import sys
