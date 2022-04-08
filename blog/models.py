@@ -5,6 +5,8 @@ from django.utils import timezone
 
 #ブログポストを定義する
 class Post(models.Model): #models.Modelで、これがDjangoModelであり、データベースに置くものだと示す
+
+    #各属性はすべてデータフィールドである
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     title = models.CharField(max_length=200)
     text = models.TextField()
@@ -13,7 +15,7 @@ class Post(models.Model): #models.Modelで、これがDjangoModelであり、デ
 
     def publish(self):
         self.published_date = timezone.now()
-        self.save()
+        self.save() #データベースに干渉
 
     def __str__(self):
         return self.title

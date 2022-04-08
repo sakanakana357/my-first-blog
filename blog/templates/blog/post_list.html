@@ -1,14 +1,18 @@
-<!DOCTYPE html>
-<html>
-    <div>
-        <h1><a href="/">Django Girls Blog</a></h1>
-    </div>
-    
+{% extends 'blog/base.html' %}
+        <!--拡張-->
+
+{% block content %}
     {% for post in posts %}
-        <div>
-            <p>published: {{ post.published_date }}</p>
-            <h2><a href="">{{ post.title }}</a></h2>
+        <div class="post">
+            <div class="date">
+                <p>published: {{ post.published_date }}</p>
+            </div>
+<!--
+    pk stands for primary key. (ユニークな名前)
+    'post_detail'は、urls.pyの、name==="post_detail"であるurlを参照するということ。
+-->
+            <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
             <p>{{ post.text|linebreaksbr }}</p>
         </div>
     {% endfor %}
-</html>
+{% endblock %}
