@@ -11,7 +11,7 @@
     pk stands for primary key. (ユニークな名前)
     'post_detail'は、urls.pyの、name==="post_detail"であるurlを参照するということ。
 -->
-            <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
+            <h2><a href="(% url 'post_detail' pk=post.pk %)">{{ post.title }}</a></h2>
             <p>{{ post.text|linebreaksbr }}</p>
         </div>
     {% endfor %}
