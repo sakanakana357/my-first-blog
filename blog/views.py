@@ -21,7 +21,6 @@ def post_new(request):
         if form.is_valid():
             post = form.save(commit=False) #まだしない。
             post.author = request.user #PostForm内にauthor属性がないので必須。
-            post.published_date = timezone.now()
             post.save()
             return redirect('post_detail', pk=post.pk) #新しい投稿のpost_detailをリダイレクト。
     else:
@@ -36,7 +35,6 @@ def post_edit(request, pk):
         if form.is_valid:
             post = form.save(commit=False)
             post.author = request.user
-            post.published_date = timezone.now()
             post.save()
             return redirect("post_detail", pk=post.pk)
     else:
